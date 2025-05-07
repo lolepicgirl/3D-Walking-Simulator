@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnrppb3w8bha8"]
+[gd_scene load_steps=4 format=3 uid="uid://cnrppb3w8bha8"]
+
+[ext_resource type="Script" uid="uid://dc2mjpd71mn16" path="res://player.gd" id="1_4flbx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sh265"]
 
@@ -7,9 +9,17 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [node name="player" type="RigidBody3D"]
 lock_rotation = true
+script = ExtResource("1_4flbx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_sh265")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_4flbx")
+
+[node name="twistpivot" type="Node3D" parent="."]
+
+[node name="pitchpivot" type="Node3D" parent="twistpivot"]
+
+[node name="Camera3D" type="Camera3D" parent="twistpivot/pitchpivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
