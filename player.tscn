@@ -18,8 +18,10 @@ mesh = SubResource("CapsuleMesh_sh265")
 shape = SubResource("ConvexPolygonShape3D_4flbx")
 
 [node name="twistpivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="pitchpivot" type="Node3D" parent="twistpivot"]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="twistpivot/pitchpivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
