@@ -19,7 +19,16 @@ func _process(delta: float) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 	$twistpivot.rotate_y(twist_input)
-		
+	$twistpivot/pitchpivot.rotate_x(pitch_input)
+	$twistpivot/pitchpivot.rotation.x = clamp(
+		$twistpivot/pitchpivot.rotation.x,
+		-0.5,
+		0.5
+	)
+	twist_input = 0.0
+	pitch_input = 0.0
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
